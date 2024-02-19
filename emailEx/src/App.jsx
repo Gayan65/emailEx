@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Contact from "./components/Contact";
@@ -12,9 +11,9 @@ function App() {
             <BrowserRouter>
                 <NavBar />
                 <Routes>
-                    <Route path="/home" element={<Home />}></Route>
-                    <Route path="/" element={<Contact />}></Route>
-                    <Route path="/login" element={<Blogs />}></Route>
+                    <Route path="/" element={<Home />}></Route>
+                    <Route path="/contact" element={<Contact />}></Route>
+                    <Route path="/Blogs" element={<Blogs />}></Route>
                 </Routes>
             </BrowserRouter>
         </>
