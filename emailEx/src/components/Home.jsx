@@ -1,9 +1,25 @@
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 
 const Home = () => {
+    const [email, setEmail] = useState("");
+    const [showSuccess, setShowSuccess] = useState(false);
+
+    const handleChange = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(email);
+        if (email === null || email === "") setShowSuccess(false);
+        else setShowSuccess(true);
+    };
+
     return (
         <Container className="mt-5">
             <Card>
@@ -16,10 +32,16 @@ const Home = () => {
                     </Card.Text>
                 </Card.Body>
             </Card>
-            <Form className="mt-5">
+            <Form className="mt-5" method="POST" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        onChange={handleChange}
+                        name="email"
+                        value={email}
+                    />
                     <Form.Text className="text-muted">
                         Subscribe to our newsletter for updates.
                     </Form.Text>
@@ -29,6 +51,11 @@ const Home = () => {
                     Subscribe
                 </Button>
             </Form>
+            {showSuccess && (
+                <Alert variant={"success"} className="mt-3">
+                    Successfully subscribed with email: {email}
+                </Alert>
+            )}
         </Container>
     );
 };
