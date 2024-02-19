@@ -1,8 +1,5 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Accordion from "react-bootstrap/Accordion";
 
 const Blogs = () => {
