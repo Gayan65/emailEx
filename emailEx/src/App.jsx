@@ -3,11 +3,11 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Blogs from "./components/Blogs";
 import NavBar from "./components/NavBar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
     return (
         <>
-            <h1>Hi</h1>
             <BrowserRouter>
                 <NavBar />
                 <Routes>
